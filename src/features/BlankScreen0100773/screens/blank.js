@@ -22,7 +22,7 @@ export class _Blank extends React.Component {
     }
   }
 
-  state = {}
+  state = { Datepicker_5: new Date("09/12/2020") }
 
   render = () => (
     <View
@@ -70,7 +70,7 @@ export class _Blank extends React.Component {
           alignSelf: "center",
           fontSize: 46,
           color: "#000000",
-          backgroundColor: "#2240d3",
+          backgroundColor: "#243ec2",
           fontFamily: "PlayfairDisplay-Bold",
           borderColor: "#000000",
           borderStyle: "solid",
@@ -90,27 +90,64 @@ export class _Blank extends React.Component {
       >
         Top Gun
       </Text>
-      <Button
-        textStyle={{
-          fontSize: 20,
-          color: "#000000",
-          textAlign: "center",
-          fontFamily: "Roboto-Regular"
-        }}
+      <TouchableOpacity onPress={() => this.props.navigation.navigate("")}>
+        <Button
+          textStyle={{
+            fontSize: 20,
+            color: "#000000",
+            textAlign: "center",
+            fontFamily: "Roboto-Regular"
+          }}
+          style={{
+            width: "54%",
+            marginLeft: 60,
+            marginTop: 5,
+            marginBottom: 5,
+            paddingLeft: 0,
+            paddingRight: 0,
+            paddingTop: 15,
+            paddingBottom: 15,
+            overflow: "hidden",
+            alignSelf: "center",
+            fontSize: 20,
+            color: "#000000",
+            backgroundColor: "#c42121",
+            fontFamily: "Roboto-Regular",
+            borderColor: "#000000",
+            borderStyle: "solid",
+            borderWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            borderRadius: 0,
+            textAlign: "center",
+            textAlignVertical: "center",
+            textDecorationLine: "underline",
+            textTransform: "none",
+            lineHeight: 12,
+            letterSpacing: 0
+          }}
+          onPress={() => alert("Pressed!")}
+        >
+          Push To Play!
+        </Button>
+      </TouchableOpacity>
+      <Datepicker
         style={{
-          width: "54%",
-          marginLeft: 60,
+          width: "18%",
+          height: 40,
+          marginLeft: 0,
+          marginRight: 15,
           marginTop: 5,
           marginBottom: 5,
-          paddingLeft: 0,
-          paddingRight: 0,
-          paddingTop: 15,
-          paddingBottom: 15,
-          overflow: "hidden",
-          alignSelf: "center",
-          fontSize: 20,
+          paddingLeft: 5,
+          paddingTop: 9,
+          paddingBottom: 10,
+          overflow: "visible",
+          fontSize: 16,
           color: "#000000",
-          backgroundColor: "#c42121",
+          backgroundColor: "#3cb52c",
           fontFamily: "Roboto-Regular",
           borderColor: "#000000",
           borderStyle: "solid",
@@ -120,17 +157,16 @@ export class _Blank extends React.Component {
           borderTopWidth: 0,
           borderBottomWidth: 0,
           borderRadius: 0,
-          textAlign: "center",
+          textAlign: "left",
           textAlignVertical: "center",
-          textDecorationLine: "underline",
+          textDecorationLine: "none",
           textTransform: "none",
           lineHeight: 12,
           letterSpacing: 0
         }}
-        onPress={() => alert("Pressed!")}
-      >
-        Push To Play!
-      </Button>
+        date={this.state.Datepicker_5}
+        onSelect={nextValue => this.setState({ Datepicker_5: nextValue })}
+      />
     </View>
   )
 }
